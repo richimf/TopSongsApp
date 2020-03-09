@@ -8,12 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ViewProtocol {
   
   // MARK: - PROPERTIES
   private let tableView: UITableViewSafeArea = UITableViewSafeArea()
   private let cellId: String = "cellId"
   private let rowHeight: CGFloat = 110
+  
+  // MARK: - VIPER
+  var presenter: PresenterProtocol?
   
   // DATA
   var albumsData = ["Machine Gun - Live at the Fillmore East, NY", "Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon"]
@@ -21,6 +24,9 @@ class ViewController: UIViewController {
   // MARK: - OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
+    // VIPER VIEW CONNECTION
+    Router.createModule(view: self)
+    // TABLE VIEW SETUP
     tableView.dataSource = self
     tableView.delegate = self
     tableView.rowHeight = UITableView.automaticDimension
@@ -53,7 +59,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    self.navigationController?.pushViewController(DetailViewController(), animated: true)
+    // TODO SET CORRECT DATA
+    let data = MusicData(name: "Song name",
+                         artistName: "artist name sent",
+                         collectionName: "collection",
+                         releaseDate: "Date",
+                         artworkUrl100: "", genres: [], url: "")
+    presenter?.showDetail(data: data, from: self)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

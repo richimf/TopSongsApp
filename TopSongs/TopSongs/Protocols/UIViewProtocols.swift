@@ -10,8 +10,8 @@ import UIKit
 
 // MARK: - CUSTOM OBJECTS
 class UIImageViewAnchor: UIImageView, ViewSizeProtocol { }
-class UIStackViewAnchor: UIStackView, ViewSizeProtocol {}
-class UITableViewSafeArea: UITableView, ViewSafeAreaProtocol {}
+class UIStackViewAnchor: UIStackView, ViewSizeProtocol { }
+class UITableViewSafeArea: UITableView, ViewSafeAreaProtocol { }
 
 // MARK: - VIEW ANCHOR SIZE PROTOCOL
 protocol ViewSizeProtocol {
@@ -20,14 +20,11 @@ protocol ViewSizeProtocol {
 extension ViewSizeProtocol where Self: UIView {
   
   func anchor(anchor: Anchor, padding: Padding?, width: CGFloat, height: CGFloat, enableInsets: Bool) {
-    
-    let topInset = CGFloat.zero
-    let bottomInset = CGFloat.zero
-    
+
     translatesAutoresizingMaskIntoConstraints = false
     
     if let top = anchor.top, let topPadding = padding?.top {
-      self.topAnchor.constraint(equalTo: top, constant: topPadding+topInset).isActive = true
+      self.topAnchor.constraint(equalTo: top, constant: topPadding).isActive = true
     }
     if let left = anchor.left, let leftPadding = padding?.left {
       self.leftAnchor.constraint(equalTo: left, constant: leftPadding).isActive = true
@@ -36,7 +33,7 @@ extension ViewSizeProtocol where Self: UIView {
       self.rightAnchor.constraint(equalTo: right, constant: -rightPadding).isActive = true
     }
     if let bottom = anchor.bottom, let bottomPadding = padding?.bottom{
-      self.bottomAnchor.constraint(equalTo: bottom, constant: -bottomPadding-bottomInset).isActive = true
+      self.bottomAnchor.constraint(equalTo: bottom, constant: -bottomPadding).isActive = true
     }
     if height != 0 {
       heightAnchor.constraint(equalToConstant: height).isActive = true
