@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13565AB92415D20B0075A724 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13565AB82415D20B0075A724 /* DetailViewController.swift */; };
 		136DBCF724157C84003F146E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBCF624157C84003F146E /* AppDelegate.swift */; };
 		136DBCF924157C84003F146E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBCF824157C84003F146E /* SceneDelegate.swift */; };
 		136DBCFB24157C84003F146E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBCFA24157C84003F146E /* ViewController.swift */; };
@@ -18,7 +19,7 @@
 		136DBD1C24157C84003F146E /* TopSongsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD1B24157C84003F146E /* TopSongsUITests.swift */; };
 		136DBD2C2415A8F6003F146E /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD2B2415A8F6003F146E /* AlbumCell.swift */; };
 		136DBD302415AA3C003F146E /* ViewSizeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD2F2415AA3C003F146E /* ViewSizeProtocol.swift */; };
-		136DBD322415B694003F146E /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD312415B694003F146E /* Entities.swift */; };
+		136DBD322415B694003F146E /* ViewEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD312415B694003F146E /* ViewEntities.swift */; };
 		136DBD342415C672003F146E /* LabelTextAlingment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD332415C672003F146E /* LabelTextAlingment.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13565AB82415D20B0075A724 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		136DBCF324157C84003F146E /* TopSongs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopSongs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136DBCF624157C84003F146E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		136DBCF824157C84003F146E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +59,7 @@
 		136DBD1D24157C84003F146E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		136DBD2B2415A8F6003F146E /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		136DBD2F2415AA3C003F146E /* ViewSizeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSizeProtocol.swift; sourceTree = "<group>"; };
-		136DBD312415B694003F146E /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		136DBD312415B694003F146E /* ViewEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEntities.swift; sourceTree = "<group>"; };
 		136DBD332415C672003F146E /* LabelTextAlingment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextAlingment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13565ABA2415D2460075A724 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				136DBCFA24157C84003F146E /* ViewController.swift */,
+				13565AB82415D20B0075A724 /* DetailViewController.swift */,
+				13565ABB2415D25B0075A724 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		13565ABB2415D25B0075A724 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				136DBD2B2415A8F6003F146E /* AlbumCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		13565ABC2415D26C0075A724 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				136DBD2F2415AA3C003F146E /* ViewSizeProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		13565ABD2415D27A0075A724 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				136DBD312415B694003F146E /* ViewEntities.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		13565ABE2415D2950075A724 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				136DBD332415C672003F146E /* LabelTextAlingment.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		136DBCEA24157C83003F146E = {
 			isa = PBXGroup;
 			children = (
@@ -111,11 +155,10 @@
 			children = (
 				136DBCF624157C84003F146E /* AppDelegate.swift */,
 				136DBCF824157C84003F146E /* SceneDelegate.swift */,
-				136DBCFA24157C84003F146E /* ViewController.swift */,
-				136DBD2B2415A8F6003F146E /* AlbumCell.swift */,
-				136DBD312415B694003F146E /* Entities.swift */,
-				136DBD2F2415AA3C003F146E /* ViewSizeProtocol.swift */,
-				136DBD332415C672003F146E /* LabelTextAlingment.swift */,
+				13565ABE2415D2950075A724 /* General */,
+				13565ABD2415D27A0075A724 /* Entities */,
+				13565ABC2415D26C0075A724 /* Protocols */,
+				13565ABA2415D2460075A724 /* View */,
 				136DBCFC24157C84003F146E /* Main.storyboard */,
 				136DBD0224157C84003F146E /* Assets.xcassets */,
 				136DBD0424157C84003F146E /* LaunchScreen.storyboard */,
@@ -274,13 +317,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13565AB92415D20B0075A724 /* DetailViewController.swift in Sources */,
 				136DBD302415AA3C003F146E /* ViewSizeProtocol.swift in Sources */,
 				136DBCFB24157C84003F146E /* ViewController.swift in Sources */,
 				136DBCF724157C84003F146E /* AppDelegate.swift in Sources */,
 				136DBD2C2415A8F6003F146E /* AlbumCell.swift in Sources */,
 				136DBD342415C672003F146E /* LabelTextAlingment.swift in Sources */,
 				136DBD0124157C84003F146E /* TopSongs.xcdatamodeld in Sources */,
-				136DBD322415B694003F146E /* Entities.swift in Sources */,
+				136DBD322415B694003F146E /* ViewEntities.swift in Sources */,
 				136DBCF924157C84003F146E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

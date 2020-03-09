@@ -52,6 +52,16 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     return rowHeight
   }
   
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+    //self.present(DetailViewController(), animated: true, completion: nil)
+    let vc = DetailViewController()
+    let aObjNavi = UINavigationController(rootViewController: vc)
+    //self.navigationController?.pushViewController(vc, animated: true)
+    self.navigationController?.pushViewController(vc, animated: true)
+   // self.navigationController?.pushViewController(DetailViewController(), animated: true)
+  }
+  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? AlbumCell else { return UITableViewCell() }
     // TODO Remove this
