@@ -12,11 +12,11 @@ class ViewController: UIViewController {
   
   // MARK: - PROPERTIES
   private let tableView: UITableViewSafeArea = UITableViewSafeArea()
-  private let cellId: String = "cell"
+  private let cellId: String = "cellId"
   private let rowHeight: CGFloat = 110
   
   // DATA
-  var albumsData = ["Machine Gun - Live at the Fillmore East, NY", "Dark side of the Moon"]
+  var albumsData = ["Machine Gun - Live at the Fillmore East, NY", "Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon"]
   
   // MARK: - OVERRIDES
   override func viewDidLoad() {
@@ -50,6 +50,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return rowHeight
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    self.navigationController?.pushViewController(DetailViewController(), animated: true)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
