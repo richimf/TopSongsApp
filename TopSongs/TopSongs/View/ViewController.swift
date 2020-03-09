@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, ViewProtocol {
-  
+
   // MARK: - PROPERTIES
   private let tableView: UITableViewSafeArea = UITableViewSafeArea()
   private let cellId: String = "cellId"
@@ -18,14 +18,12 @@ class ViewController: UIViewController, ViewProtocol {
   // MARK: - VIPER
   var presenter: PresenterProtocol?
   
-  // DATA
-  var albumsData = ["Machine Gun - Live at the Fillmore East, NY", "Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon"]
-  
   // MARK: - OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
     // VIPER VIEW CONNECTION
     Router.createModule(view: self)
+    presenter?.getAlbums()
     // TABLE VIEW SETUP
     tableView.dataSource = self
     tableView.delegate = self
@@ -45,13 +43,19 @@ class ViewController: UIViewController, ViewProtocol {
     view.addSubview(tableView)
     tableView.setupAnchorWithSafeArea(container: self.view, safeArea: view.layoutMarginsGuide)
   }
+  
+  func loadAlbums() {
+    DispatchQueue.main.async {
+        self.tableView.reloadData()
+    }
+  }
 }
 
 // MARK: - EXTENSIONS
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return albumsData.count
+    return presenter?.data?.count ?? 0
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -59,20 +63,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    // TODO SET CORRECT DATA
-    let data = MusicData(name: "Song name",
-                         artistName: "artist name sent",
-                         collectionName: "collection",
-                         releaseDate: "Date",
-                         artworkUrl100: "", genres: [], url: "")
-    presenter?.showDetail(data: data, from: self)
+    guard let selectedData = presenter?.data?[indexPath.row] else { return }
+    presenter?.showDetail(data: selectedData, from: self)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? AlbumCell else { return UITableViewCell() }
     // TODO Remove this
+    let artistName = presenter?.data?[indexPath.row].artistName ?? ""
+    let name = presenter?.data?[indexPath.row].name ?? ""
     let image = UIImage(named: "testAlbum")!
-    cell.set(album: albumsData[indexPath.row], artist: "Artist name here, yes in this field", cover: image)
+    cell.set(album: name, artist: artistName, cover: image)
     return cell
   }
 }

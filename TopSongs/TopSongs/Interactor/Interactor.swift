@@ -9,8 +9,24 @@
 import Foundation
 
 class Interactor: InteractorInputProtocol {
-
+  
   // MARK: - VIPER
   weak var presenter: InteractorOutputProtocol?
-  //private let apiClient = APIClient()
+  private let apiClient = APIClient()
+  
+  func getAlbums() {
+    apiClient.delegate = self
+    apiClient.getTopSongs()
+  }
+}
+extension Interactor: APIResponseProtocol {
+
+  func fetched(response: Response) {
+    guard let albums = response.feed.results else { return }
+    presenter?.updateData(data: albums)
+  }
+
+  func error() {
+    print(#function)
+  }
 }

@@ -14,10 +14,19 @@ class Presenter: PresenterProtocol {
   var interactor: InteractorInputProtocol?
   var router: RouterProtocol?
   
+  var data: [MusicData]?
+  
   func showDetail(data: MusicData, from view: UIViewController) {
     router?.showDetail(data: data, from: view)
   }
+  
+  func getAlbums() {
+    interactor?.getAlbums()
+  }
 }
 extension Presenter: InteractorOutputProtocol {
-  
+  func updateData(data: [MusicData]) {
+    self.data = data
+    view?.loadAlbums()
+  }
 }
