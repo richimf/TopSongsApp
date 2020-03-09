@@ -10,6 +10,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
   
+  private var data: MusicData?
+  
   private var albumImage: UIImageViewAnchor = {
     let imgView: UIImageViewAnchor = UIImageViewAnchor(image: UIImage(named: "testAlbum"))
     imgView.contentMode = .scaleAspectFit
@@ -28,7 +30,6 @@ class DetailViewController: UIViewController {
     let lbl = LabelTextAlingment()
     lbl.textColor = .black
     lbl.numberOfLines = 0
-    lbl.text = "Machine Gun - Live at the Fillmore East"
     lbl.font = UIFont.boldSystemFont(ofSize: 18)
     lbl.textAlignment = .left
     return lbl
@@ -37,7 +38,6 @@ class DetailViewController: UIViewController {
   private let albumNameLabel2: LabelTextAlingment = {
      let lbl = LabelTextAlingment()
      lbl.numberOfLines = 0
-     lbl.text = "Machine Gun - Live at the Fillmore East"
      lbl.font = UIFont.systemFont(ofSize: 18)
      lbl.textAlignment = .left
      return lbl
@@ -46,7 +46,6 @@ class DetailViewController: UIViewController {
   private let albumNameLabel3: LabelTextAlingment = {
     let lbl = LabelTextAlingment()
     lbl.numberOfLines = 0
-    lbl.text = "Machine Gun - Live at the Fillmore East"
     lbl.font = UIFont.systemFont(ofSize: 16)
     lbl.textAlignment = .left
     return lbl
@@ -55,7 +54,6 @@ class DetailViewController: UIViewController {
   private let albumNameLabel4: LabelTextAlingment = {
     let lbl = LabelTextAlingment()
     lbl.numberOfLines = 0
-    lbl.text = "Machine Gun - Live at the Fillmore East"
     lbl.font = UIFont.italicSystemFont(ofSize: 14)
     lbl.textAlignment = .left
     return lbl
@@ -64,6 +62,7 @@ class DetailViewController: UIViewController {
   // MARK: - OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
+    albumNameLabel.text = data?.artistName
   }
   
   override func loadView() {
@@ -80,7 +79,7 @@ class DetailViewController: UIViewController {
     albumImage.widthAnchor.constraint(equalToConstant: 200).isActive = true
     albumImage.heightAnchor.constraint(equalTo: albumImage.widthAnchor).isActive = true
     
-    // Album info
+    // Album Info
     let stackView = UIStackViewAnchor(arrangedSubviews: [albumNameLabel, albumNameLabel2, albumNameLabel3, albumNameLabel4])
     stackView.distribution = .fillProportionally
     stackView.axis = .vertical
@@ -96,6 +95,10 @@ class DetailViewController: UIViewController {
     gotoItunesButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -20.0).isActive = true
     gotoItunesButton.leftAnchor.constraint(equalTo: margins.leftAnchor, constant: 20.0).isActive = true
     gotoItunesButton.rightAnchor.constraint(equalTo: margins.rightAnchor, constant: -20.0).isActive = true
+  }
+  
+  func setData(data: MusicData) {
+    self.data = data
   }
   
 }
