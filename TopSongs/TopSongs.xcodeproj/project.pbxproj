@@ -16,6 +16,10 @@
 		136DBD0624157C84003F146E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136DBD0424157C84003F146E /* LaunchScreen.storyboard */; };
 		136DBD1124157C84003F146E /* TopSongsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD1024157C84003F146E /* TopSongsTests.swift */; };
 		136DBD1C24157C84003F146E /* TopSongsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD1B24157C84003F146E /* TopSongsUITests.swift */; };
+		136DBD2C2415A8F6003F146E /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD2B2415A8F6003F146E /* AlbumCell.swift */; };
+		136DBD302415AA3C003F146E /* ViewSizeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD2F2415AA3C003F146E /* ViewSizeProtocol.swift */; };
+		136DBD322415B694003F146E /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD312415B694003F146E /* Entities.swift */; };
+		136DBD342415C672003F146E /* LabelTextAlingment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD332415C672003F146E /* LabelTextAlingment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		136DBD1724157C84003F146E /* TopSongsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopSongsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		136DBD1B24157C84003F146E /* TopSongsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSongsUITests.swift; sourceTree = "<group>"; };
 		136DBD1D24157C84003F146E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		136DBD2B2415A8F6003F146E /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		136DBD2F2415AA3C003F146E /* ViewSizeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSizeProtocol.swift; sourceTree = "<group>"; };
+		136DBD312415B694003F146E /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		136DBD332415C672003F146E /* LabelTextAlingment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextAlingment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +112,10 @@
 				136DBCF624157C84003F146E /* AppDelegate.swift */,
 				136DBCF824157C84003F146E /* SceneDelegate.swift */,
 				136DBCFA24157C84003F146E /* ViewController.swift */,
+				136DBD2B2415A8F6003F146E /* AlbumCell.swift */,
+				136DBD312415B694003F146E /* Entities.swift */,
+				136DBD2F2415AA3C003F146E /* ViewSizeProtocol.swift */,
+				136DBD332415C672003F146E /* LabelTextAlingment.swift */,
 				136DBCFC24157C84003F146E /* Main.storyboard */,
 				136DBD0224157C84003F146E /* Assets.xcassets */,
 				136DBD0424157C84003F146E /* LaunchScreen.storyboard */,
@@ -262,9 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				136DBD302415AA3C003F146E /* ViewSizeProtocol.swift in Sources */,
 				136DBCFB24157C84003F146E /* ViewController.swift in Sources */,
 				136DBCF724157C84003F146E /* AppDelegate.swift in Sources */,
+				136DBD2C2415A8F6003F146E /* AlbumCell.swift in Sources */,
+				136DBD342415C672003F146E /* LabelTextAlingment.swift in Sources */,
 				136DBD0124157C84003F146E /* TopSongs.xcdatamodeld in Sources */,
+				136DBD322415B694003F146E /* Entities.swift in Sources */,
 				136DBCF924157C84003F146E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
