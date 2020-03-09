@@ -12,11 +12,11 @@ class ViewController: UIViewController {
   
   // MARK: - PROPERTIES
   private let tableView: UITableViewSafeArea = UITableViewSafeArea()
-  private let cellId: String = "cell"
+  private let cellId: String = "cellId"
   private let rowHeight: CGFloat = 110
   
   // DATA
-  var albumsData = ["Machine Gun - Live at the Fillmore East, NY", "Dark side of the Moon"]
+  var albumsData = ["Machine Gun - Live at the Fillmore East, NY", "Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon","Dark side of the Moon"]
   
   // MARK: - OVERRIDES
   override func viewDidLoad() {
@@ -53,13 +53,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-    //self.present(DetailViewController(), animated: true, completion: nil)
-    let vc = DetailViewController()
-    let aObjNavi = UINavigationController(rootViewController: vc)
-    //self.navigationController?.pushViewController(vc, animated: true)
-    self.navigationController?.pushViewController(vc, animated: true)
-   // self.navigationController?.pushViewController(DetailViewController(), animated: true)
+    self.navigationController?.pushViewController(DetailViewController(), animated: true)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

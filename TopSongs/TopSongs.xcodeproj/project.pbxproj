@@ -122,12 +122,12 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		13565ABE2415D2950075A724 /* General */ = {
+		13565ABE2415D2950075A724 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
 				136DBD332415C672003F146E /* LabelTextAlingment.swift */,
 			);
-			path = General;
+			path = CustomUI;
 			sourceTree = "<group>";
 		};
 		136DBCEA24157C83003F146E = {
@@ -155,7 +155,7 @@
 			children = (
 				136DBCF624157C84003F146E /* AppDelegate.swift */,
 				136DBCF824157C84003F146E /* SceneDelegate.swift */,
-				13565ABE2415D2950075A724 /* General */,
+				13565ABE2415D2950075A724 /* CustomUI */,
 				13565ABD2415D27A0075A724 /* Entities */,
 				13565ABC2415D26C0075A724 /* Protocols */,
 				13565ABA2415D2460075A724 /* View */,
