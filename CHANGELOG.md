@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Added
 
+### VIPER architecture
+
+- Branch:
+
+> feature/MF-VIPER
+
+
 ### Detail View
 
 - Branch:
