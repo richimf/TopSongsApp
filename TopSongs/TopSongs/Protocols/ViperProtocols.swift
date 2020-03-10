@@ -12,6 +12,7 @@ import UIKit
 protocol ViewProtocol: class {
   var presenter: PresenterProtocol? { get set}
   // PRESENTER -> VIEW
+  func loadAlbums()
 }
 
 protocol PresenterProtocol: class {
@@ -19,16 +20,20 @@ protocol PresenterProtocol: class {
   var interactor: InteractorInputProtocol? { get set}
   var router: RouterProtocol? { get set }
   // VIEW -> PRESENTER
-   func showDetail(data: MusicData, from view: UIViewController)
+  var data: [MusicData]? { get set }
+  func getAlbums()
+  func showDetail(data: MusicData, from view: UIViewController)
 }
 
 protocol InteractorInputProtocol: class {
   var presenter: InteractorOutputProtocol? { get set}
   // PRESENTER -> INTERACTOR
+  func getAlbums()
 }
 
 protocol InteractorOutputProtocol: class {
   // INTERACTOR -> PRESENTER
+  func updateData(data: [MusicData])
 }
 
 protocol RouterProtocol: class {

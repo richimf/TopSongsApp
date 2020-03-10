@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Added
 
+### API Requests and Data Models
+
+- Branch:
+
+> feature/MF-APIRequests
+
+
 ### VIPER architecture
 
 - Branch:

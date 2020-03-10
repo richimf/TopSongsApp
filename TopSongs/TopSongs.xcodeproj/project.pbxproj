@@ -21,10 +21,13 @@
 		136DBD302415AA3C003F146E /* UIViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD2F2415AA3C003F146E /* UIViewProtocols.swift */; };
 		136DBD322415B694003F146E /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD312415B694003F146E /* Entities.swift */; };
 		136DBD342415C672003F146E /* LabelTextAlingment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD332415C672003F146E /* LabelTextAlingment.swift */; };
+		1388B37A2416BC550093B255 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1388B3792416BC550093B255 /* ImageDownloader.swift */; };
+		1388B37D2416C03F0093B255 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1388B37C2416C03F0093B255 /* APIClient.swift */; };
+		1388B3802416C9D90093B255 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1388B37F2416C9D90093B255 /* APIConstants.swift */; };
 		13BE8CD12415FEE600E2FFBC /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BE8CD02415FEE600E2FFBC /* Interactor.swift */; };
 		13BE8CD32415FEF500E2FFBC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BE8CD22415FEF500E2FFBC /* Router.swift */; };
 		13BE8CD52415FF0900E2FFBC /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BE8CD42415FF0900E2FFBC /* Presenter.swift */; };
-		13BE8CDA2416008B00E2FFBC /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BE8CD92416008B00E2FFBC /* Protocols.swift */; };
+		13BE8CDA2416008B00E2FFBC /* ViperProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BE8CD92416008B00E2FFBC /* ViperProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,10 +68,13 @@
 		136DBD2F2415AA3C003F146E /* UIViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewProtocols.swift; sourceTree = "<group>"; };
 		136DBD312415B694003F146E /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		136DBD332415C672003F146E /* LabelTextAlingment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextAlingment.swift; sourceTree = "<group>"; };
+		1388B3792416BC550093B255 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		1388B37C2416C03F0093B255 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		1388B37F2416C9D90093B255 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		13BE8CD02415FEE600E2FFBC /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		13BE8CD22415FEF500E2FFBC /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		13BE8CD42415FF0900E2FFBC /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
-		13BE8CD92416008B00E2FFBC /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		13BE8CD92416008B00E2FFBC /* ViperProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +123,7 @@
 		13565ABC2415D26C0075A724 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				13BE8CD92416008B00E2FFBC /* Protocols.swift */,
+				13BE8CD92416008B00E2FFBC /* ViperProtocols.swift */,
 				136DBD2F2415AA3C003F146E /* UIViewProtocols.swift */,
 			);
 			path = Protocols;
@@ -164,6 +170,8 @@
 			children = (
 				136DBCF624157C84003F146E /* AppDelegate.swift */,
 				136DBCF824157C84003F146E /* SceneDelegate.swift */,
+				1388B37E2416C0460093B255 /* APIClient */,
+				1388B37B2416BDBB0093B255 /* DataManager */,
 				13565ABE2415D2950075A724 /* CustomUI */,
 				13565ABC2415D26C0075A724 /* Protocols */,
 				13565ABA2415D2460075A724 /* View */,
@@ -196,6 +204,23 @@
 				136DBD1D24157C84003F146E /* Info.plist */,
 			);
 			path = TopSongsUITests;
+			sourceTree = "<group>";
+		};
+		1388B37B2416BDBB0093B255 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				1388B3792416BC550093B255 /* ImageDownloader.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		1388B37E2416C0460093B255 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				1388B37F2416C9D90093B255 /* APIConstants.swift */,
+				1388B37C2416C03F0093B255 /* APIClient.swift */,
+			);
+			path = APIClient;
 			sourceTree = "<group>";
 		};
 		13BE8CD62415FF2400E2FFBC /* Interactor */ = {
@@ -354,6 +379,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13BE8CD32415FEF500E2FFBC /* Router.swift in Sources */,
+				1388B37A2416BC550093B255 /* ImageDownloader.swift in Sources */,
+				1388B3802416C9D90093B255 /* APIConstants.swift in Sources */,
 				13565AB92415D20B0075A724 /* DetailViewController.swift in Sources */,
 				136DBD302415AA3C003F146E /* UIViewProtocols.swift in Sources */,
 				13BE8CD12415FEE600E2FFBC /* Interactor.swift in Sources */,
@@ -362,9 +389,10 @@
 				13BE8CD52415FF0900E2FFBC /* Presenter.swift in Sources */,
 				136DBD2C2415A8F6003F146E /* AlbumCell.swift in Sources */,
 				136DBD342415C672003F146E /* LabelTextAlingment.swift in Sources */,
-				13BE8CDA2416008B00E2FFBC /* Protocols.swift in Sources */,
+				13BE8CDA2416008B00E2FFBC /* ViperProtocols.swift in Sources */,
 				136DBD0124157C84003F146E /* TopSongs.xcdatamodeld in Sources */,
 				136DBD322415B694003F146E /* Entities.swift in Sources */,
+				1388B37D2416C03F0093B255 /* APIClient.swift in Sources */,
 				136DBCF924157C84003F146E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

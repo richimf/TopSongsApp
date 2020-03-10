@@ -5,3 +5,9 @@
 ## Build generated
 build/
 DerivedData/
+
+*.xcuserstate
+*.xcbkptlist
+UserInterfaceState.xcuserstate
+TopSongs/TopSongs.xcodeproj/project.xcworkspace/xcuserdata/richie.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcuserstate

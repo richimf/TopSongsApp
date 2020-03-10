@@ -8,6 +8,7 @@
 
 import UIKit
 
+// THIS CLASS CHANGES THE TEXT ALIGNMENT OF UILABEL.
 class LabelTextAlingment: UILabel {
 
   override func drawText(in rect: CGRect) {
