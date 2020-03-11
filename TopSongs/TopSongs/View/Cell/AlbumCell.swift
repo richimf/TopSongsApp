@@ -14,13 +14,12 @@ class AlbumCell: UITableViewCell, ViewWithSeparatorStyle {
   private let albumImage: UIImageViewAnchor = {
     let imgView: UIImageViewAnchor = UIImageViewAnchor(image: UIImage(named: "empty"))
     imgView.contentMode = .scaleAspectFit
-    imgView.layer.cornerRadius = 12.0
     imgView.clipsToBounds = true
     return imgView
   }()
 
-  private let albumNameLabel: LabelTextAlingment = {
-    let lbl = LabelTextAlingment()
+  private let albumNameLabel: UILabelAlingment = {
+    let lbl = UILabelAlingment()
     lbl.textColor = .black
     lbl.numberOfLines = 2
     lbl.font = UIFont.boldSystemFont(ofSize: 18)
@@ -29,8 +28,8 @@ class AlbumCell: UITableViewCell, ViewWithSeparatorStyle {
     return lbl
   }()
 
-  private let artistNameLabel: LabelTextAlingment = {
-    let lbl = LabelTextAlingment()
+  private let artistNameLabel: UILabelAlingment = {
+    let lbl = UILabelAlingment()
     lbl.textColor = .black
     lbl.numberOfLines = 0
     lbl.contentMode = .top

@@ -9,7 +9,7 @@
 import UIKit
 
 // THIS CLASS CHANGES THE TEXT ALIGNMENT OF UILABEL.
-class LabelTextAlingment: UILabel {
+class UILabelAlingment: UILabel {
 
   override func drawText(in rect: CGRect) {
     var newRect = rect
@@ -24,5 +24,15 @@ class LabelTextAlingment: UILabel {
       ()
     }
     super.drawText(in: newRect)
+  }
+  
+  func setup(size: FontSize, textColor: UIColor = .black, isBold: Bool = false) -> UILabelAlingment {
+    let lbl = UILabelAlingment()
+    lbl.textColor = textColor
+    lbl.numberOfLines = 0
+    let size = size.rawValue
+    lbl.font = isBold ? UIFont.boldSystemFont(ofSize: size) : UIFont.systemFont(ofSize: size)
+    lbl.textAlignment = .left
+    return lbl
   }
 }

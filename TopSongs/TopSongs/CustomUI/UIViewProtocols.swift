@@ -8,11 +8,6 @@
 
 import UIKit
 
-// MARK: - CUSTOM OBJECTS
-class UIImageViewAnchor: UIImageView, ViewSizeProtocol { }
-class UIStackViewAnchor: UIStackView, ViewSizeProtocol { }
-class UITableViewSafeArea: UITableView, ViewSafeAreaProtocol { }
-
 // MARK: - VIEW ANCHOR SIZE PROTOCOL
 protocol ViewSizeProtocol {
   func anchor(anchor: Anchor, padding: Padding?, width: CGFloat, height: CGFloat, enableInsets: Bool)
@@ -42,6 +37,7 @@ extension ViewSizeProtocol where Self: UIView {
       widthAnchor.constraint(equalToConstant: width).isActive = true
     }
   }
+
 }
 
 // MARK: - SAFE AREA PROTOCOL
@@ -77,5 +73,36 @@ extension ViewWithSeparatorStyle where Self: UIView {
     view.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
     view.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
     view.backgroundColor = AppColors().Main50
+  }
+}
+
+//MARK: - BOUNCE BUTTON
+protocol BounceButtonProtocol {
+  func bounce()
+}
+extension BounceButtonProtocol where Self: UIButton {
+  func bounce() {
+    let pulse = CASpringAnimation(keyPath: "transform.scale")
+    pulse.duration = 0.4
+    pulse.fromValue = 0.95
+    pulse.toValue = 1.0
+    pulse.autoreverses = false
+    pulse.repeatCount = 1
+    pulse.initialVelocity = 0.4
+    pulse.damping = 1.0
+    layer.add(pulse, forKey: "bounce")
+  }
+  
+  func setupButtonAtBottom(view: UIView) {
+    let margins = view.safeAreaLayoutGuide
+    self.translatesAutoresizingMaskIntoConstraints = false
+    self.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+    self.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -20.0).isActive = true
+    self.leftAnchor.constraint(equalTo: margins.leftAnchor, constant: 20.0).isActive = true
+    self.rightAnchor.constraint(equalTo: margins.rightAnchor, constant: -20.0).isActive = true
+  }
+  
+  func addSelector(_ target: Any?, action: Selector) {
+    self.addTarget(target, action: action, for: .touchUpInside)
   }
 }
