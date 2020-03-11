@@ -61,7 +61,7 @@ class AlbumCell: UITableViewCell {
   private func setupViews() {
     // Album image
     let albumAnchor = Anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil)
-    let albumPadding = Padding(top: 5, left: 10, bottom: 5, right: 5)
+    let albumPadding = Padding(top: 0, left: 15, bottom: 0, right: 0)
     albumImage.anchor(anchor: albumAnchor, padding: albumPadding, width: 90, height: 90, enableInsets: false)
 
     // Album info
@@ -80,7 +80,8 @@ class AlbumCell: UITableViewCell {
   }
   
   // MARK: CELL METHODS
-  func set(album name: String, artist: String, cover image: UIImage) {
+  func set(album name: String?, artist: String?, cover image: UIImage?) {
+    guard let name = name, let artist = artist, let image = image else { return }
     self.albumImage.image = image
     self.albumNameLabel.text = name
     self.artistNameLabel.text = artist

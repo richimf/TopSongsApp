@@ -11,9 +11,10 @@ import UIKit
 class DetailViewController: UIViewController {
   
   private var data: MusicData?
-  
+  private let imageDownloader = ImageDownloader()
+
   private var albumImage: UIImageViewAnchor = {
-    let imgView: UIImageViewAnchor = UIImageViewAnchor(image: UIImage(named: "testAlbum"))
+    let imgView: UIImageViewAnchor = UIImageViewAnchor()
     imgView.contentMode = .scaleAspectFit
     return imgView
   }()
@@ -35,7 +36,7 @@ class DetailViewController: UIViewController {
     return lbl
   }()
   
-  private let albumNameLabel2: LabelTextAlingment = {
+  private let genreLabel: LabelTextAlingment = {
      let lbl = LabelTextAlingment()
      lbl.numberOfLines = 0
      lbl.font = UIFont.systemFont(ofSize: 18)
@@ -43,7 +44,7 @@ class DetailViewController: UIViewController {
      return lbl
    }()
   
-  private let albumNameLabel3: LabelTextAlingment = {
+  private let releaseDateLabel: LabelTextAlingment = {
     let lbl = LabelTextAlingment()
     lbl.numberOfLines = 0
     lbl.font = UIFont.systemFont(ofSize: 16)
@@ -51,7 +52,7 @@ class DetailViewController: UIViewController {
     return lbl
   }()
   
-  private let albumNameLabel4: LabelTextAlingment = {
+  private let copyrightLabel: LabelTextAlingment = {
     let lbl = LabelTextAlingment()
     lbl.numberOfLines = 0
     lbl.font = UIFont.italicSystemFont(ofSize: 14)
@@ -63,6 +64,13 @@ class DetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     albumNameLabel.text = data?.artistName
+    //genreLabel.text! = data?.genres.flatMap{ $0.name }
+    releaseDateLabel.text = data?.releaseDate
+    copyrightLabel.text = data?.copyright
+    guard let urlArt = data?.artworkUrl100 else { return }
+    DispatchQueue.main.async {
+      self.albumImage.image = self.imageDownloader.retreiveImage(url: urlArt)
+    }
   }
   
   override func loadView() {
@@ -80,7 +88,7 @@ class DetailViewController: UIViewController {
     albumImage.heightAnchor.constraint(equalTo: albumImage.widthAnchor).isActive = true
     
     // Album Info
-    let stackView = UIStackViewAnchor(arrangedSubviews: [albumNameLabel, albumNameLabel2, albumNameLabel3, albumNameLabel4])
+    let stackView = UIStackViewAnchor(arrangedSubviews: [albumNameLabel, genreLabel, releaseDateLabel, copyrightLabel])
     stackView.distribution = .fillProportionally
     stackView.axis = .vertical
     stackView.spacing = 3
@@ -100,5 +108,4 @@ class DetailViewController: UIViewController {
   func setData(data: MusicData) {
     self.data = data
   }
-  
 }

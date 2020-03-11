@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, ViewProtocol {
-
+  
   // MARK: - PROPERTIES
   private let tableView: UITableViewSafeArea = UITableViewSafeArea()
   private let cellId: String = "cellId"
@@ -46,7 +46,7 @@ class ViewController: UIViewController, ViewProtocol {
   
   func loadAlbums() {
     DispatchQueue.main.async {
-        self.tableView.reloadData()
+      self.tableView.reloadData()
     }
   }
 }
@@ -68,13 +68,18 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? AlbumCell else { return UITableViewCell() }
-    // TODO Remove this
-    let artistName = presenter?.data?[indexPath.row].artistName ?? ""
-    let name = presenter?.data?[indexPath.row].name ?? ""
-    let image = UIImage(named: "testAlbum")!
-    cell.set(album: name, artist: artistName, cover: image)
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId,
+                                                   for: indexPath) as? AlbumCell else { return UITableViewCell() }
+    let data = presenter?.data?[indexPath.row]
+    let image = presenter?.downloadImage(url: data?.artworkUrl100) { self.reloadRowAt(indexPath) }
+    cell.set(album: data?.name, artist: data?.artistName, cover: image)
     return cell
+  }
+  
+  private func reloadRowAt(_ indexPath: IndexPath) {
+    self.tableView.beginUpdates()
+    self.tableView.reloadRows( at: [indexPath], with: .fade)
+    self.tableView.endUpdates()
   }
 }
 
