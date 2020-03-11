@@ -29,28 +29,28 @@ class DetailViewController: UIViewController {
     return button
   }()
   
-  private let albumNameLabel: LabelTextAlingment = {
-    let lbl = LabelTextAlingment()
+  private let albumNameLabel: UILabelAlingment = {
+    let lbl = UILabelAlingment()
     return lbl.setup(size: .huge, isBold: true)
   }()
   
-  private let artistNameLabel: LabelTextAlingment = {
-    let lbl = LabelTextAlingment()
+  private let artistNameLabel: UILabelAlingment = {
+    let lbl = UILabelAlingment()
     return lbl.setup(size: .big, isBold: true)
   }()
   
-  private let genreLabel: LabelTextAlingment = {
-    let lbl = LabelTextAlingment()
+  private let genreLabel: UILabelAlingment = {
+    let lbl = UILabelAlingment()
     return lbl.setup(size: .big)
   }()
   
-  private let releaseDateLabel: LabelTextAlingment = {
-    let lbl = LabelTextAlingment()
+  private let releaseDateLabel: UILabelAlingment = {
+    let lbl = UILabelAlingment()
     return lbl.setup(size: .regular)
   }()
   
-  private let copyrightLabel: LabelTextAlingment = {
-    let lbl = LabelTextAlingment()
+  private let copyrightLabel: UILabelAlingment = {
+    let lbl = UILabelAlingment()
     lbl.numberOfLines = 0
     lbl.font = UIFont.italicSystemFont(ofSize: 14)
     lbl.textAlignment = .left

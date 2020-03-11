@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1354EAB7241878DA00B43249 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354EAB6241878DA00B43249 /* Utils.swift */; };
+		1354EABA2418840D00B43249 /* UIViewCustomObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354EAB92418840D00B43249 /* UIViewCustomObjects.swift */; };
 		13565AB92415D20B0075A724 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13565AB82415D20B0075A724 /* DetailViewController.swift */; };
 		136DBCF724157C84003F146E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBCF624157C84003F146E /* AppDelegate.swift */; };
 		136DBCF924157C84003F146E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBCF824157C84003F146E /* SceneDelegate.swift */; };
@@ -21,7 +22,7 @@
 		136DBD2C2415A8F6003F146E /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD2B2415A8F6003F146E /* AlbumCell.swift */; };
 		136DBD302415AA3C003F146E /* UIViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD2F2415AA3C003F146E /* UIViewProtocols.swift */; };
 		136DBD322415B694003F146E /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD312415B694003F146E /* Entities.swift */; };
-		136DBD342415C672003F146E /* LabelTextAlingment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD332415C672003F146E /* LabelTextAlingment.swift */; };
+		136DBD342415C672003F146E /* UILabelAlingment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBD332415C672003F146E /* UILabelAlingment.swift */; };
 		1388B37A2416BC550093B255 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1388B3792416BC550093B255 /* ImageDownloader.swift */; };
 		1388B37D2416C03F0093B255 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1388B37C2416C03F0093B255 /* APIClient.swift */; };
 		1388B3802416C9D90093B255 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1388B37F2416C9D90093B255 /* APIConstants.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		1354EAB6241878DA00B43249 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		1354EAB92418840D00B43249 /* UIViewCustomObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewCustomObjects.swift; sourceTree = "<group>"; };
 		13565AB82415D20B0075A724 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		136DBCF324157C84003F146E /* TopSongs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopSongs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136DBCF624157C84003F146E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +73,7 @@
 		136DBD2B2415A8F6003F146E /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		136DBD2F2415AA3C003F146E /* UIViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewProtocols.swift; sourceTree = "<group>"; };
 		136DBD312415B694003F146E /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
-		136DBD332415C672003F146E /* LabelTextAlingment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextAlingment.swift; sourceTree = "<group>"; };
+		136DBD332415C672003F146E /* UILabelAlingment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelAlingment.swift; sourceTree = "<group>"; };
 		1388B3792416BC550093B255 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		1388B37C2416C03F0093B255 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		1388B37F2416C9D90093B255 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -154,8 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				136DBD2F2415AA3C003F146E /* UIViewProtocols.swift */,
+				1354EAB92418840D00B43249 /* UIViewCustomObjects.swift */,
+				136DBD332415C672003F146E /* UILabelAlingment.swift */,
 				13A574FA24186B9900925DC1 /* Constants.swift */,
-				136DBD332415C672003F146E /* LabelTextAlingment.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -406,9 +409,10 @@
 				136DBCF724157C84003F146E /* AppDelegate.swift in Sources */,
 				13BE8CD52415FF0900E2FFBC /* Presenter.swift in Sources */,
 				136DBD2C2415A8F6003F146E /* AlbumCell.swift in Sources */,
-				136DBD342415C672003F146E /* LabelTextAlingment.swift in Sources */,
+				136DBD342415C672003F146E /* UILabelAlingment.swift in Sources */,
 				13BE8CDA2416008B00E2FFBC /* ViperProtocols.swift in Sources */,
 				136DBD0124157C84003F146E /* TopSongs.xcdatamodeld in Sources */,
+				1354EABA2418840D00B43249 /* UIViewCustomObjects.swift in Sources */,
 				136DBD322415B694003F146E /* Entities.swift in Sources */,
 				1388B37D2416C03F0093B255 /* APIClient.swift in Sources */,
 				136DBCF924157C84003F146E /* SceneDelegate.swift in Sources */,
