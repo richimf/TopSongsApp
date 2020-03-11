@@ -129,10 +129,16 @@ class DetailViewController: UIViewController {
     
     if let url = data?.url, !url.isEmpty {
       gotoItunesButton.isHidden = false
+      gotoItunesButton.addTarget(self, action: #selector(openLink), for: .touchUpInside)
     }
   }
   
   func setData(data: MusicData) {
     self.data = data
+  }
+  
+  @objc func openLink() {
+    guard let path = data?.url, let url = URL(string: path) else { return }
+    UIApplication.shared.open(url)
   }
 }
