@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DownloadImageProtocol {
+  func downloadImage(url: String?, completion: @escaping () -> Void) -> UIImage?
+}
+
 // MARK: - VIPER Protocols
 protocol ViewProtocol: class {
   var presenter: PresenterProtocol? { get set}
@@ -15,7 +19,7 @@ protocol ViewProtocol: class {
   func loadAlbums()
 }
 
-protocol PresenterProtocol: class {
+protocol PresenterProtocol: class, DownloadImageProtocol {
   var view: ViewProtocol? { get set }
   var interactor: InteractorInputProtocol? { get set}
   var router: RouterProtocol? { get set }
@@ -25,7 +29,7 @@ protocol PresenterProtocol: class {
   func showDetail(data: MusicData, from view: UIViewController)
 }
 
-protocol InteractorInputProtocol: class {
+protocol InteractorInputProtocol: class, DownloadImageProtocol {
   var presenter: InteractorOutputProtocol? { get set}
   // PRESENTER -> INTERACTOR
   func getAlbums()

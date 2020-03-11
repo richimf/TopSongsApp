@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlbumCell: UITableViewCell {
+class AlbumCell: UITableViewCell, ViewWithSeparatorStyle {
     
   // MARK: - COMPUTED PROPERTIES
   private let albumImage: UIImageViewAnchor = {
@@ -23,7 +23,6 @@ class AlbumCell: UITableViewCell {
     let lbl = LabelTextAlingment()
     lbl.textColor = .black
     lbl.numberOfLines = 2
-    lbl.text = "album name album name album name album end"
     lbl.font = UIFont.boldSystemFont(ofSize: 18)
     lbl.textAlignment = .left
     lbl.contentMode = .bottom
@@ -35,7 +34,6 @@ class AlbumCell: UITableViewCell {
     lbl.textColor = .black
     lbl.numberOfLines = 0
     lbl.contentMode = .top
-    lbl.text = "artist name artist end"
     lbl.font = UIFont.systemFont(ofSize: 15)
     lbl.textAlignment = .left
     return lbl
@@ -49,7 +47,6 @@ class AlbumCell: UITableViewCell {
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
-    // Configure the view for the selected state
   }
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -58,13 +55,24 @@ class AlbumCell: UITableViewCell {
     setupViews()
   }
   
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  // MARK: PRIVATE METHODS
   private func setupViews() {
-    // Album image
+    showDivision()
+    setupAlbumCover()
+    setupAlbumInfo()
+  }
+  
+  private func setupAlbumCover() {
     let albumAnchor = Anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil)
-    let albumPadding = Padding(top: 5, left: 10, bottom: 5, right: 5)
+    let albumPadding = Padding(top: 0, left: 15, bottom: 0, right: 0)
     albumImage.anchor(anchor: albumAnchor, padding: albumPadding, width: 90, height: 90, enableInsets: false)
-
-    // Album info
+  }
+  
+  private func setupAlbumInfo() {
     let stackView = UIStackViewAnchor(arrangedSubviews: [albumNameLabel, artistNameLabel])
     stackView.distribution = .fillEqually
     stackView.axis = .vertical
@@ -75,15 +83,11 @@ class AlbumCell: UITableViewCell {
     stackView.anchor(anchor: stackAnchor, padding: stackPadding, width: 0, height: 100, enableInsets: false)
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
   // MARK: CELL METHODS
-  func set(album name: String, artist: String, cover image: UIImage) {
+  func set(album name: String?, artist: String?, cover image: UIImage?) {
+    guard let name = name, let artist = artist, let image = image else { return }
     self.albumImage.image = image
     self.albumNameLabel.text = name
     self.artistNameLabel.text = artist
   }
-  
 }

@@ -11,22 +11,34 @@ import UIKit
 class DetailViewController: UIViewController {
   
   private var data: MusicData?
+  private let imageDownloader = ImageDownloader()
   
   private var albumImage: UIImageViewAnchor = {
-    let imgView: UIImageViewAnchor = UIImageViewAnchor(image: UIImage(named: "testAlbum"))
+    let imgView: UIImageViewAnchor = UIImageViewAnchor()
     imgView.contentMode = .scaleAspectFit
     return imgView
   }()
   
   private let gotoItunesButton: UIButton = {
     let button = UIButton()
-    button.backgroundColor = .red
+    button.backgroundColor = AppColors().Main
+    button.setTitle("Open in iTunes", for: .normal)
     button.layer.cornerRadius = 10.0
     button.clipsToBounds = true
+    button.isHidden = true
     return button
   }()
   
   private let albumNameLabel: LabelTextAlingment = {
+    let lbl = LabelTextAlingment()
+    lbl.textColor = .black
+    lbl.numberOfLines = 0
+    lbl.font = UIFont.boldSystemFont(ofSize: 20)
+    lbl.textAlignment = .left
+    return lbl
+  }()
+  
+  private let artistNameLabel: LabelTextAlingment = {
     let lbl = LabelTextAlingment()
     lbl.textColor = .black
     lbl.numberOfLines = 0
@@ -35,15 +47,15 @@ class DetailViewController: UIViewController {
     return lbl
   }()
   
-  private let albumNameLabel2: LabelTextAlingment = {
-     let lbl = LabelTextAlingment()
-     lbl.numberOfLines = 0
-     lbl.font = UIFont.systemFont(ofSize: 18)
-     lbl.textAlignment = .left
-     return lbl
-   }()
+  private let genreLabel: LabelTextAlingment = {
+    let lbl = LabelTextAlingment()
+    lbl.numberOfLines = 0
+    lbl.font = UIFont.systemFont(ofSize: 18)
+    lbl.textAlignment = .left
+    return lbl
+  }()
   
-  private let albumNameLabel3: LabelTextAlingment = {
+  private let releaseDateLabel: LabelTextAlingment = {
     let lbl = LabelTextAlingment()
     lbl.numberOfLines = 0
     lbl.font = UIFont.systemFont(ofSize: 16)
@@ -51,7 +63,7 @@ class DetailViewController: UIViewController {
     return lbl
   }()
   
-  private let albumNameLabel4: LabelTextAlingment = {
+  private let copyrightLabel: LabelTextAlingment = {
     let lbl = LabelTextAlingment()
     lbl.numberOfLines = 0
     lbl.font = UIFont.italicSystemFont(ofSize: 14)
@@ -62,7 +74,26 @@ class DetailViewController: UIViewController {
   // MARK: - OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
-    albumNameLabel.text = data?.artistName
+    albumNameLabel.text = data?.name
+    artistNameLabel.text = data?.artistName
+    releaseDateLabel.text = data?.releaseDate
+    copyrightLabel.text = data?.copyright
+    setGenres()
+    loadAlbumCover()
+  }
+  
+  private func setGenres() {
+    let genres = data?.genres?.compactMap { $0.name }
+    var genresOutput = ""
+    genres?.forEach { genresOutput += $0 }
+    genreLabel.text = genresOutput
+  }
+  
+  private func loadAlbumCover() {
+    guard let urlArt = data?.artworkUrl100 else { return }
+    DispatchQueue.main.async {
+      self.albumImage.image = self.imageDownloader.retreiveImage(url: urlArt)
+    }
   }
   
   override func loadView() {
@@ -70,8 +101,8 @@ class DetailViewController: UIViewController {
     self.view.backgroundColor = .white
     self.view.addSubview(albumImage)
     self.view.addSubview(gotoItunesButton)
-
-    //Anchors
+    
+    // Anchors
     let margins = self.view.safeAreaLayoutGuide
     albumImage.translatesAutoresizingMaskIntoConstraints = false
     albumImage.topAnchor.constraint(equalTo: margins.topAnchor, constant: 40.0).isActive = true
@@ -80,7 +111,7 @@ class DetailViewController: UIViewController {
     albumImage.heightAnchor.constraint(equalTo: albumImage.widthAnchor).isActive = true
     
     // Album Info
-    let stackView = UIStackViewAnchor(arrangedSubviews: [albumNameLabel, albumNameLabel2, albumNameLabel3, albumNameLabel4])
+    let stackView = UIStackViewAnchor(arrangedSubviews: [albumNameLabel, artistNameLabel, genreLabel, releaseDateLabel, copyrightLabel])
     stackView.distribution = .fillProportionally
     stackView.axis = .vertical
     stackView.spacing = 3
@@ -89,16 +120,19 @@ class DetailViewController: UIViewController {
     let stackPadding = Padding(top: 5, left: 5, bottom: 5, right: 5)
     stackView.anchor(anchor: stackAnchor, padding: stackPadding, width: 200, height: 0, enableInsets: false)
     
-    // Button
+    // Button constraints
     gotoItunesButton.translatesAutoresizingMaskIntoConstraints = false
     gotoItunesButton.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
     gotoItunesButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -20.0).isActive = true
     gotoItunesButton.leftAnchor.constraint(equalTo: margins.leftAnchor, constant: 20.0).isActive = true
     gotoItunesButton.rightAnchor.constraint(equalTo: margins.rightAnchor, constant: -20.0).isActive = true
+    
+    if let url = data?.url, !url.isEmpty {
+      gotoItunesButton.isHidden = false
+    }
   }
   
   func setData(data: MusicData) {
     self.data = data
   }
-  
 }
