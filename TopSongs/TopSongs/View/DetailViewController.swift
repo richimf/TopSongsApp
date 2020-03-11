@@ -21,7 +21,8 @@ class DetailViewController: UIViewController {
   
   private let gotoItunesButton: UIButton = {
     let button = UIButton()
-    button.backgroundColor = .red
+    button.backgroundColor = AppColors().Main
+    button.setTitle("Open in iTunes", for: .normal)
     button.layer.cornerRadius = 10.0
     button.clipsToBounds = true
     button.isHidden = true

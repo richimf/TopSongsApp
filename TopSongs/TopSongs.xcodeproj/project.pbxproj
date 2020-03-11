@@ -127,8 +127,8 @@
 		13565ABC2415D26C0075A724 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				13BE8CD92416008B00E2FFBC /* ViperProtocols.swift */,
 				136DBD2F2415AA3C003F146E /* UIViewProtocols.swift */,
+				13BE8CD92416008B00E2FFBC /* ViperProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";

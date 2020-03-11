@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlbumCell: UITableViewCell {
+class AlbumCell: UITableViewCell, ViewWithSeparatorStyle {
     
   // MARK: - COMPUTED PROPERTIES
   private let albumImage: UIImageViewAnchor = {
@@ -61,6 +61,7 @@ class AlbumCell: UITableViewCell {
   
   // MARK: PRIVATE METHODS
   private func setupViews() {
+    showDivision()
     setupAlbumCover()
     setupAlbumInfo()
   }

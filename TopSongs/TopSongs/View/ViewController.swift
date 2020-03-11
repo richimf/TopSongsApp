@@ -27,6 +27,7 @@ class ViewController: UIViewController, ViewProtocol {
     // TABLE VIEW SETUP
     tableView.dataSource = self
     tableView.delegate = self
+    tableView.separatorStyle = .none
     tableView.rowHeight = UITableView.automaticDimension
     tableView.estimatedRowHeight = rowHeight
     tableView.register(AlbumCell.self, forCellReuseIdentifier: cellId)
