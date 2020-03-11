@@ -25,4 +25,14 @@ class LabelTextAlingment: UILabel {
     }
     super.drawText(in: newRect)
   }
+  
+  func setup(size: FontSize, textColor: UIColor = .black, isBold: Bool = false) -> LabelTextAlingment {
+    let lbl = LabelTextAlingment()
+    lbl.textColor = textColor
+    lbl.numberOfLines = 0
+    let size = size.rawValue
+    lbl.font = isBold ? UIFont.boldSystemFont(ofSize: size) : UIFont.systemFont(ofSize: size)
+    lbl.textAlignment = .left
+    return lbl
+  }
 }

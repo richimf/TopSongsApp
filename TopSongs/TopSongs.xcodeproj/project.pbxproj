@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1354EAB7241878DA00B43249 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354EAB6241878DA00B43249 /* Utils.swift */; };
 		13565AB92415D20B0075A724 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13565AB82415D20B0075A724 /* DetailViewController.swift */; };
 		136DBCF724157C84003F146E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBCF624157C84003F146E /* AppDelegate.swift */; };
 		136DBCF924157C84003F146E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBCF824157C84003F146E /* SceneDelegate.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1354EAB6241878DA00B43249 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		13565AB82415D20B0075A724 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		136DBCF324157C84003F146E /* TopSongs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopSongs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136DBCF624157C84003F146E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1354EAB8241878DE00B43249 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1354EAB6241878DA00B43249 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		13565ABA2415D2460075A724 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,7 +137,6 @@
 		13565ABC2415D26C0075A724 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				136DBD2F2415AA3C003F146E /* UIViewProtocols.swift */,
 				13BE8CD92416008B00E2FFBC /* ViperProtocols.swift */,
 			);
 			path = Protocols;
@@ -144,6 +153,7 @@
 		13565ABE2415D2950075A724 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				136DBD2F2415AA3C003F146E /* UIViewProtocols.swift */,
 				13A574FA24186B9900925DC1 /* Constants.swift */,
 				136DBD332415C672003F146E /* LabelTextAlingment.swift */,
 			);
@@ -175,6 +185,7 @@
 			children = (
 				136DBCF624157C84003F146E /* AppDelegate.swift */,
 				136DBCF824157C84003F146E /* SceneDelegate.swift */,
+				1354EAB8241878DE00B43249 /* Utils */,
 				1388B37E2416C0460093B255 /* APIClient */,
 				1388B37B2416BDBB0093B255 /* DataManager */,
 				13565ABE2415D2950075A724 /* CustomUI */,
@@ -401,6 +412,7 @@
 				136DBD322415B694003F146E /* Entities.swift in Sources */,
 				1388B37D2416C03F0093B255 /* APIClient.swift in Sources */,
 				136DBCF924157C84003F146E /* SceneDelegate.swift in Sources */,
+				1354EAB7241878DA00B43249 /* Utils.swift in Sources */,
 				13A574FB24186B9900925DC1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,3 +16,10 @@ struct AppColors {
   let GrayLight = UIColor(red:0.74, green:0.74, blue:0.74, alpha:1.00)
   let BlackSoft = UIColor(red:0.13, green:0.15, blue:0.18, alpha:1.00)
 }
+
+enum FontSize: CGFloat {
+  case huge = 20
+  case big = 18
+  case regular = 16
+  case small = 14
+}

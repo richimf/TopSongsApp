@@ -14,7 +14,6 @@ class AlbumCell: UITableViewCell, ViewWithSeparatorStyle {
   private let albumImage: UIImageViewAnchor = {
     let imgView: UIImageViewAnchor = UIImageViewAnchor(image: UIImage(named: "empty"))
     imgView.contentMode = .scaleAspectFit
-    imgView.layer.cornerRadius = 12.0
     imgView.clipsToBounds = true
     return imgView
   }()
