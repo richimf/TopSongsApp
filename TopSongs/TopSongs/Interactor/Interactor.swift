@@ -37,6 +37,6 @@ extension Interactor: APIResponseProtocol {
   }
 
   func error() {
-    print(#function)
+    presenter?.showError()
   }
 }

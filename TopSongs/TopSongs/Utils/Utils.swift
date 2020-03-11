@@ -17,5 +17,11 @@ final class Utils {
     alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
     return alert
   }
+  
+  static func showAlert(title: String, message: String) -> UIAlertController {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+    return alert
+  }
 }
 

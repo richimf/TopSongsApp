@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, ViewProtocol {
-  
+
   // MARK: - PROPERTIES
   private let tableView: UITableViewSafeArea = UITableViewSafeArea()
   private let cellId: String = "cellId"
@@ -56,9 +56,17 @@ class ViewController: UIViewController, ViewProtocol {
     tableView.setupAnchorWithSafeArea(container: self.view, safeArea: view.layoutMarginsGuide)
   }
   
+  // MARK: - VIEW PROTOCOL METHODS
   func loadAlbums() {
     DispatchQueue.main.async {
       self.tableView.reloadData()
+    }
+  }
+  
+  func showError() {
+    let alert = Utils.showAlert(title: "Error", message: "Request failed")
+    DispatchQueue.main.async {
+      self.present(alert, animated: true)
     }
   }
 }

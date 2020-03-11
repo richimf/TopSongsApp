@@ -29,6 +29,10 @@ class Presenter: PresenterProtocol {
   }
 }
 extension Presenter: InteractorOutputProtocol {
+  func showError() {
+    view?.showError()
+  }
+  
   func updateData(data: [MusicData]) {
     self.data = data
     view?.loadAlbums()

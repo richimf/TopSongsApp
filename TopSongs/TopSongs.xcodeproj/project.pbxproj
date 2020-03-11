@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1354EAB7241878DA00B43249 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354EAB6241878DA00B43249 /* Utils.swift */; };
 		1354EABA2418840D00B43249 /* UIViewCustomObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354EAB92418840D00B43249 /* UIViewCustomObjects.swift */; };
+		1354EABC2418B31900B43249 /* InteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354EABB2418B31900B43249 /* InteractorSpy.swift */; };
+		1354EABE2418B32800B43249 /* RouterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354EABD2418B32800B43249 /* RouterSpy.swift */; };
+		1354EAC02418B33200B43249 /* PresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354EABF2418B33200B43249 /* PresenterTest.swift */; };
+		1354EAC22418B34000B43249 /* ViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354EAC12418B34000B43249 /* ViewControllerSpy.swift */; };
 		13565AB92415D20B0075A724 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13565AB82415D20B0075A724 /* DetailViewController.swift */; };
 		136DBCF724157C84003F146E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBCF624157C84003F146E /* AppDelegate.swift */; };
 		136DBCF924157C84003F146E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DBCF824157C84003F146E /* SceneDelegate.swift */; };
@@ -54,6 +58,10 @@
 /* Begin PBXFileReference section */
 		1354EAB6241878DA00B43249 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1354EAB92418840D00B43249 /* UIViewCustomObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewCustomObjects.swift; sourceTree = "<group>"; };
+		1354EABB2418B31900B43249 /* InteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorSpy.swift; sourceTree = "<group>"; };
+		1354EABD2418B32800B43249 /* RouterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSpy.swift; sourceTree = "<group>"; };
+		1354EABF2418B33200B43249 /* PresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterTest.swift; sourceTree = "<group>"; };
+		1354EAC12418B34000B43249 /* ViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSpy.swift; sourceTree = "<group>"; };
 		13565AB82415D20B0075A724 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		136DBCF324157C84003F146E /* TopSongs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopSongs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136DBCF624157C84003F146E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +218,10 @@
 		136DBD0F24157C84003F146E /* TopSongsTests */ = {
 			isa = PBXGroup;
 			children = (
+				1354EABF2418B33200B43249 /* PresenterTest.swift */,
+				1354EABD2418B32800B43249 /* RouterSpy.swift */,
+				1354EABB2418B31900B43249 /* InteractorSpy.swift */,
+				1354EAC12418B34000B43249 /* ViewControllerSpy.swift */,
 				136DBD1024157C84003F146E /* TopSongsTests.swift */,
 				136DBD1224157C84003F146E /* Info.plist */,
 			);
@@ -425,6 +437,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1354EAC22418B34000B43249 /* ViewControllerSpy.swift in Sources */,
+				1354EABC2418B31900B43249 /* InteractorSpy.swift in Sources */,
+				1354EABE2418B32800B43249 /* RouterSpy.swift in Sources */,
+				1354EAC02418B33200B43249 /* PresenterTest.swift in Sources */,
 				136DBD1124157C84003F146E /* TopSongsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

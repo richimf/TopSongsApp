@@ -22,6 +22,7 @@ protocol ViewProtocol: class {
   var presenter: PresenterProtocol? { get set}
   // PRESENTER -> VIEW
   func loadAlbums()
+  func showError()
 }
 
 protocol PresenterProtocol: class, DownloadImageProtocol, DetailViewProtocol {
@@ -40,6 +41,7 @@ protocol InteractorInputProtocol: class, DownloadImageProtocol {
 protocol InteractorOutputProtocol: class {
   // INTERACTOR -> PRESENTER
   func updateData(data: [MusicData])
+  func showError()
 }
 
 protocol RouterProtocol: class, DetailViewProtocol {
