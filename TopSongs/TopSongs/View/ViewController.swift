@@ -65,8 +65,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let selectedData = presenter?.data?[indexPath.row] else { return }
     presenter?.showDetail(data: selectedData, from: self)
+    self.tableView.deselectRow(at: indexPath, animated: true)
   }
-  
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId,
                                                    for: indexPath) as? AlbumCell else { return UITableViewCell() }
