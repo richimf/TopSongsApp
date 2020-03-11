@@ -13,7 +13,6 @@ class Presenter: PresenterProtocol {
   weak var view: ViewProtocol?
   var interactor: InteractorInputProtocol?
   var router: RouterProtocol?
-  
   var data: [MusicData]?
   
   func showDetail(data: MusicData, from view: UIViewController) {

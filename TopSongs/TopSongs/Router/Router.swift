@@ -12,6 +12,7 @@ class Router: RouterProtocol {
   
   typealias PresenterProtocols = PresenterProtocol & InteractorOutputProtocol
    
+  //SETUP INITIAL VIPER MODULE
    class func createModule(view: ViewController) {
      let presenter: PresenterProtocols = Presenter()
      view.presenter = presenter
@@ -21,6 +22,7 @@ class Router: RouterProtocol {
      view.presenter?.interactor?.presenter = presenter
    }
   
+  // GO TO DETAIL VIEW
   func showDetail(data: MusicData, from view: UIViewController) {
     let vc = DetailViewController()
     vc.setData(data: data)

@@ -59,12 +59,12 @@ class AlbumCell: UITableViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
+  // MARK: PRIVATE METHODS
   private func setupViews() {
     setupAlbumCover()
     setupAlbumInfo()
   }
   
-  // MARK: PRIVATE METHODS
   private func setupAlbumCover() {
     let albumAnchor = Anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil)
     let albumPadding = Padding(top: 0, left: 15, bottom: 0, right: 0)

@@ -30,12 +30,23 @@ class ViewController: UIViewController, ViewProtocol {
     tableView.rowHeight = UITableView.automaticDimension
     tableView.estimatedRowHeight = rowHeight
     tableView.register(AlbumCell.self, forCellReuseIdentifier: cellId)
+    self.navigationController?.navigationBar.tintColor = AppColors().Main
   }
   
   override func loadView() {
     super.loadView()
     view.backgroundColor = .white
     setupTableView()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.navigationController?.setNavigationBarHidden(true, animated: animated)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    self.navigationController?.setNavigationBarHidden(false, animated: animated)
   }
   
   // MARK: - PRIVATE METHODS
