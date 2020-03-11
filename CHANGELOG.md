@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## Added
 
+### Open external iTunes link with button.
+
+
+- Branch:
+
+> feature/MF-LaunchLink
+
+
 ### API Requests and Data Models
 
 - Branch:
